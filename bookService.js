@@ -1,4 +1,4 @@
-import Book from '../models/models.js'
+import Book from './models.js'
 
 class BookService {
     async getAll() {

@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import fileUpload from 'express-fileupload'
-import router from './routes/router.js'
+import router from './router.js'
 
 const PORT = process.env.PORT || 80
 const DB_URL = `mongodb+srv://Alex:123@cluster0.2lffu.mongodb.net/books_fullstack?retryWrites=true&w=majority`
