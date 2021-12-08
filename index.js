@@ -2,12 +2,14 @@ import express from 'express'
 import mongoose from 'mongoose'
 import fileUpload from 'express-fileupload'
 import router from './router.js'
+import corsMiddleware from './cors.middleware.js'
 
 const PORT = process.env.PORT || 80
 const DB_URL = `mongodb+srv://Alex:123@cluster0.2lffu.mongodb.net/books_fullstack?retryWrites=true&w=majority`
 
 const app = express()
 
+app.use(corsMiddleware)
 app.use(express.json())
 app.use(fileUpload({}))
 app.use(express.static('static'))
