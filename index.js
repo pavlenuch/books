@@ -1,9 +1,15 @@
-import dotenv from 'dotenv'
-dotenv.config()
-import express from 'express'
-import mongoose from 'mongoose'
-import router from './routes/router.js'
-import fileUpload from 'express-fileupload'
+// import dotenv from 'dotenv'
+// dotenv.config()
+// import express from 'express'
+// import mongoose from 'mongoose'
+// import router from './routes/router.js'
+// import fileUpload from 'express-fileupload'
+
+const express = require('express')
+const mongoose = require('mongoose')
+const router = require('./routes/router.js')
+const fileUpload = require('express-fileupload')
+require('dotenv').config()
 
 const app = express()
 

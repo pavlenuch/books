@@ -1,5 +1,7 @@
-import Book from '../models/models.js'
-import FileService from './fileService.js'
+// import Book from '../models/models.js'
+// import FileService from './fileService.js'
+const Book = require('../models/models.js')
+const FileService = require('./fileService.js')
 
 class BookService {
     async create(book, picture) {
@@ -38,4 +40,4 @@ class BookService {
     }
 }
 
-export default new BookService
+module.exports = new BookService
