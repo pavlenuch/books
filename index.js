@@ -1,31 +1,16 @@
-// import dotenv from 'dotenv'
-// dotenv.config()
-// import express from 'express'
-// import mongoose from 'mongoose'
-// import router from './routes/router.js'
-// import fileUpload from 'express-fileupload'
-
 const express = require('express')
-const mongoose = require('mongoose')
-const router = require('./routes/router.js')
-const fileUpload = require('express-fileupload')
-require('dotenv').config()
-
 const app = express()
 
-app.use(express.json())
-app.use(fileUpload({}))
-app.use(express.static('static'))
-app.use('/api', router)
+const PORT = process.env.PORT || 80
 
-async function startApp() {
-    try {
-        await mongoose.connect(process.env.MONGO_URL, { useUnifiedTopology: true, useNewUrlParser: true })
-            .then((res) => console.log('Connected to DB'))
-        app.listen(process.env.PORT, () => console.log('Server started on port', `${process.env.PORT}`))
-    } catch(e) {
-        console.log(e)
-    }
-}
+app.get('/', (req, res)=>{
+    res.end('<h1>Home Page</h1>')
+})
 
-startApp()
+app.get('/about', (req, res)=>{
+    res.end('<h1>About Page</h1>')
+})
+
+app.listen(PORT, ()=>{
+    console.log('Server has been started...')
+})
