@@ -1,10 +1,9 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import mongoose from 'mongoose'
 import router from './routes/router.js'
 import fileUpload from 'express-fileupload'
-
-const PORT = 5000
-const DB_URL = `mongodb+srv://Alex:123@cluster0.2lffu.mongodb.net/books_fullstack?retryWrites=true&w=majority`
 
 const app = express()
 
@@ -15,9 +14,9 @@ app.use('/api', router)
 
 async function startApp() {
     try {
-        await mongoose.connect(DB_URL, { useUnifiedTopology: true, useNewUrlParser: true })
+        await mongoose.connect(process.env.MONGO_URL, { useUnifiedTopology: true, useNewUrlParser: true })
             .then((res) => console.log('Connected to DB'))
-        app.listen(PORT, () => console.log('Server started on port', PORT))
+        app.listen(process.env.PORT, () => console.log('Server started on port', `${process.env.PORT}`))
     } catch(e) {
         console.log(e)
     }
