@@ -1,4 +1,5 @@
-import BookService from "./bookService.js"
+// import BookService from "./bookService.js"
+const BookService = require("./bookService.js")
 
 class BookController {
     async getAll(req, res) {
@@ -11,4 +12,4 @@ class BookController {
     }
 }
 
-export default new BookController
+module.exports =  new BookController

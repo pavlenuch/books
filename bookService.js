@@ -1,4 +1,5 @@
-import Book from './models.js'
+// import Book from './models.js'
+const Book = require("./models.js")
 
 class BookService {
     async getAll() {
@@ -7,4 +8,4 @@ class BookService {
     }
 }
 
-export default new BookService
+module.exports =  new BookService

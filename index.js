@@ -1,18 +1,24 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import fileUpload from 'express-fileupload'
-import router from './router.js'
-import corsMiddleware from './cors.middleware.js'
-import config from 'config'
+// import express from 'express'
+const express = require("express")
+// import mongoose from 'mongoose'
+const mongoose = require("mongoose")
+// import fileUpload from 'express-fileupload'
+// const fileUpload = require("fileUpload")
+const router = require("./router.js")
+// import router from './router.js'
+// import corsMiddleware from './cors.middleware.js'
+const corsMiddleware = require("./cors.middleware.js")
+const config = require("config")
+// import config from 'config'
 
-const PORT = process.env.PORT || 80
-const DB_URL = `mongodb+srv://Alex:123@cluster0.2lffu.mongodb.net/books_fullstack?retryWrites=true&w=majority`
+// const PORT = process.env.PORT || 80
+const PORT = config.get('serverPort')
+// const DB_URL = `mongodb+srv://Alex:123@cluster0.2lffu.mongodb.net/books_fullstack?retryWrites=true&w=majority`
 
 const app = express()
 
 app.use(corsMiddleware)
 app.use(express.json())
-app.use(fileUpload({}))
 app.use(express.static('static'))
 app.use('/', router)
 
