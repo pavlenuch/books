@@ -1,25 +1,16 @@
 {
-  "name": "heroku",
+  "name": "books_fullstack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "cd server && npm run server",
+    "dev": "concurrently \"npm start --prefix client\" \"npm run dev --prefix server\""
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "config": "^3.3.6",
-    "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
-    "mongodb": "^4.2.1",
-    "mongoose": "^6.0.13",
-    "react-scripts": "^3.4.3",
-    "uuid": "^8.3.2"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "concurrently": "^5.2.0"
   }
 }

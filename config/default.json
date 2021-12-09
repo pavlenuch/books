@@ -1,4 +1,0 @@
-{
-    "serverPort" : 80,
-    "dbUrl": "mongodb+srv://Alex:123@cluster0.2lffu.mongodb.net/books_fullstack?retryWrites=true&w=majority"
-  }
